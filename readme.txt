@@ -1,0 +1,7 @@
+- in order to run TimeTracker:
+    - follow instructions in front/readme.txt
+    - follow instructions in backend/readme.txt
+    - login to the website.
+    - default credentials:
+        - username: a@gmail.command
+        - password: 123
