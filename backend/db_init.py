@@ -3,7 +3,9 @@ from sqlalchemy import text
 from sqlalchemy_utils import database_exists, create_database
 from config import *
 import bcrypt
+from datetime import datetime, timezone
 from classes.utilities.Permission import E_PERMISSIONS
+import random
 
 
 
@@ -60,7 +62,11 @@ def create_db(app, db):
                 role='Net Admin',
                 permission=E_PERMISSIONS.net_admin,  
                 pass_hash=bcrypt.hashpw('123'.encode('utf-8'), bcrypt.gensalt()).decode('utf-8'),
-                is_active=True
+                is_active=True,
+                salary = 1,
+                work_capacity = 9,
+                employment_start = datetime.now(timezone.utc),
+                weekend_choice = "Friday,Saturday"
             )
             db.session.add(net_admin)
             db.session.commit()
@@ -87,12 +93,17 @@ def create_db(app, db):
                     email=f'employer@{company.company_name}.com',
                     first_name='Employer',
                     last_name=company.company_name,
+                    mobile_phone = "0123456789",
                     company_id=company.company_id,
                     role='Manager',
                     permission=E_PERMISSIONS.employer, 
                     pass_hash=bcrypt.hashpw('123'.encode('utf-8'), bcrypt.gensalt()).decode('utf-8'),
-                    is_active=True
-                )
+                    is_active=True,
+                    salary = random.randint(1, 50) ,
+                    work_capacity = random.randint(1, 9) ,
+                    employment_start = datetime.now(timezone.utc),
+                    weekend_choice = "Friday,Saturday"
+                    )
                 db.session.add(employer) 
                 print(f"{company.company_name} employer created successfully.")
 
@@ -102,11 +113,16 @@ def create_db(app, db):
                     email=f'employee@{company.company_name}.com',
                     first_name='Employee',
                     last_name=company.company_name,
+                    mobile_phone = "0123456789",
                     company_id=company.company_id,
                     role='secretary',
                     permission=E_PERMISSIONS.employee,  
                     pass_hash=bcrypt.hashpw('123'.encode('utf-8'), bcrypt.gensalt()).decode('utf-8'),
-                    is_active=True 
+                    is_active=True,
+                    salary = random.randint(1, 50) ,
+                    work_capacity = random.randint(1, 9) ,
+                    employment_start = datetime.now(timezone.utc),
+                    weekend_choice = "Saturday,Sunday"
                 )
                 db.session.add(employee)
                 print(f"{company.company_name} employee created successfully.")

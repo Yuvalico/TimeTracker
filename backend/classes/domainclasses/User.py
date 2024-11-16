@@ -87,7 +87,7 @@ class User(DomainClassInterface):
             first_name= self.first_name,
             last_name= self.last_name,
             mobile_phone= self.mobile_phone,
-            company_id= self.company_id,  # Convert UUID to string
+            company_id= self.company_id,
             role= self.role,
             permission= self.permission,
             pass_hash = self.pass_hash,
