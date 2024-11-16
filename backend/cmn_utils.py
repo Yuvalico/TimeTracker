@@ -45,9 +45,13 @@ def find_timewatch_re(string)->int:
     Returns:
         int: The starting index of "timeWatch" or "tw" if found, -1 otherwise.
     """
-    match = re.search(r"timeWatch", string)
+    match = re.search(r"backend", string)
+    if not match:
+        match = re.search(r"timeWatch", string)
     if not match:
         match = re.search(r"tw", string)
+    if not match:
+        match = re.search(r"tt", string)
 
     return match.start() if match else -1
 
