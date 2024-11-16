@@ -3,5 +3,5 @@
     - follow instructions in backend/readme.txt
     - login to the website.
     - default credentials:
-        - username: a@gmail.command
+        - username: a@gmail.com
         - password: 123
