@@ -4,3 +4,6 @@ to run backend:
     - conda activate tw
     - change to backend directory
     - enter command "python main.py"
+
+to compile backend:
+    - run "nuitka --standalone --output-filename=backend  main.py "
